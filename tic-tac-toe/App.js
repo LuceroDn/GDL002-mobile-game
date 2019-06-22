@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator, createAppContainer} from "react-navigation";
-import Panel from './Components/Panel';
-//import Home from './Components/Home';
+import Game from './Components/Game';
+import Splash from './Components/Splash';
 
 export default class App extends React.Component{
   render(){
@@ -12,11 +12,11 @@ export default class App extends React.Component{
 }
 
 const AppStackNavigation = createStackNavigator ({
-  // Home: {
-  //   screen: Home
-  // },
-  Panel: {
-    screen: Panel
+  Home: {
+    screen: Splash
+  },
+  Game: {
+    screen: Game
   }
 });
 

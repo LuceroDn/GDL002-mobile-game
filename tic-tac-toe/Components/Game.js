@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, TouchableOpacity, Alert, Button } from 'react-native';
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
 
-class Panel extends Component {
+class Game extends Component {
   constructor(props){
     super(props);
 
@@ -16,6 +16,10 @@ class Panel extends Component {
     }
   }
 
+  static navigationOptions = {
+    header: null
+   }
+   
     ComponentDidMount(){
       this.initializeGame();
     }
@@ -162,12 +166,12 @@ class Panel extends Component {
 }
 }
 
-export default Panel;
+export default Game;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#02aaff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -178,6 +182,7 @@ const styles = StyleSheet.create({
     height: 100, 
     alignItems: "center",
     justifyContent: "center",
+    
   },
 
   tileX: {
@@ -187,8 +192,8 @@ const styles = StyleSheet.create({
 },
 
   tileO: {
-    color: "purple",
-    fontSize: 60,
+    color: "#fff",
+    fontSize: 75,
   }
 
 });
