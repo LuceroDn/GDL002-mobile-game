@@ -6,7 +6,7 @@ import Splash from './Components/Splash';
 export default class App extends React.Component{
   render(){
     return(
-      <AppContainer/>
+        <AppContainer/>
     );
   }
 }
