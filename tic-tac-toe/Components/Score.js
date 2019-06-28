@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, Button } from 'react-native';
-import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
+import { View } from 'react-native';
+
 
 class ButtonNewGame extends Component {
     constructor(props){
@@ -13,7 +13,7 @@ class ButtonNewGame extends Component {
       <View>
 
           <View>
-              <h1>Player</h1>
+              <h1></h1>
           </View>
           
       </View>      

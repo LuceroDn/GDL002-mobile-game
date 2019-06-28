@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
+import styles from './Style';
 
 
 export default class Splash extends Component {
@@ -15,7 +16,7 @@ export default class Splash extends Component {
 
   render() {
     return (
-        <View style={styles.container}>
+        <View style={styles.containerSplash}>
             <View >
            <Image
            style={styles.logo}
@@ -29,18 +30,6 @@ export default class Splash extends Component {
 }
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#02aaff',
-      justifyContent: 'center',
-      alignItems: 'center', 
-    },
 
-    logo: {
-        width: 150,
-        height: 250,
-    },
-  });
   
   

@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, Button } from 'react-native';
-
-//import Functions, { intialize, getWinner, onTilePress, onNewGamePress, renderIcon} from './Functions';
-import {renderIcon, onTilePress, getWinner} from './utils';
-//import * as Functions from './Functions';
-import ButtonNewGame from "./ButtonNewGame";
+import { View, TouchableOpacity, Alert } from 'react-native';
+import {renderIcon, onTilePress, getWinner} from './Utils';
+import styles from './Style';
 
 class Game extends Component {
     constructor(props){
@@ -47,14 +44,75 @@ class Game extends Component {
     afterTurn(){
       //Check for winners...
       let winner = getWinner(this.state.gameState);
-      if (winner == 1) {
-        Alert.alert("Player 1 is the winner");
-        this.initializeGame();
-      }else if (winner == -1){
-        Alert.alert("Player 2 is the winner");
-        this.initializeGame();
-      };
-    }
+      if (winner[0] == 1) {
+        switch (winner[1]) {
+          case 0:
+            {
+              //Jugada Vertical
+              Alert.alert("¡Ganó 'X'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 1:
+            {
+              //Jugada Horizontal
+              Alert.alert("¡Ganó 'X'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 2:
+            {
+              //Jugada Diagonal izquierda
+              Alert.alert("¡Ganó 'X'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 3:
+            {
+              //Jugada Diagonal derecha
+              Alert.alert("¡Ganó 'X'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+        }
+      } else if (winner[0] == -1) {
+        switch (winner[1]) {
+          case 0:
+            {
+              // Jugada Vertical
+              Alert.alert("¡Ganó 'O'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 1:
+            {
+              //Jugada Horizontal
+              Alert.alert("¡Ganó 'O'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 2:
+            {
+              //Jugada Diagonal izq
+              Alert.alert("¡Ganó 'O'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+          case 3:
+            {
+              //Jugada Diagonal de derecha
+              Alert.alert("¡Ganó 'O'! 🏆 ");
+              this.initializeGame();
+            }
+            break;
+        }
+      } else if (winner[0] == 2) {
+        if (winner[1] == 4) {
+          Alert.alert("¡Nadie Ganó! ☠️");
+          this.initializeGame();
+        }
+      }
+    };
 
     
     render() {
@@ -109,9 +167,6 @@ class Game extends Component {
           </TouchableOpacity>
           </View>
       
-        
-          <ButtonNewGame />
-          
           </View>
         );
       }
@@ -119,32 +174,4 @@ class Game extends Component {
       
       export default Game;
       
-      const styles = StyleSheet.create({
-        container: {
-          flex: 1,
-          backgroundColor: '#02aaff',
-          alignItems: 'center',
-          justifyContent: 'center',
-        },
       
-        tile: {
-          borderWidth: 10,
-          width: 100,
-          height: 100, 
-          alignItems: "center",
-          justifyContent: "center",
-          
-        },
-      
-        tileX: {
-          color: "black",
-          fontSize: 75,
-      
-      },
-      
-        tileO: {
-          color: "#fff",
-          fontSize: 75,
-        }
-      
-      });
