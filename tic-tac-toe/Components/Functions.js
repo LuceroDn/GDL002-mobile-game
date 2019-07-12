@@ -1,45 +1,48 @@
-import React, {Component} from 'react';
-import { View, Alert} from 'react-native';
+import React, { Component } from 'react';
+import { View, Alert } from 'react-native';
 import { MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
 
 class Functions extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      gameState:  [
+      gameState: [
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
       ],
       currentPlayer: 1,
-      currentIcon: "close"
+      currentIcon: "close",
+      scoreX: 0,
+      scoreO: 0
     };
   }
-   
-    ComponentDidMount(){
-      this.initializeGame();
-    }
 
-    initializeGame = () => {
-      this.setState({gameState:
-      [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0]
-      ],
+  ComponentDidMount() {
+    this.initializeGame();
+  }
+
+  initializeGame = () => {
+    this.setState({
+      gameState:
+        [
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]
+        ],
       currentPlayer: 1,
-      });
-    }
+    });
+  }
 
-    //Return 1 if player 1 won, -1 if player 2 won, or a 0 if no one has won
-    getWinner = gameState => {
-      const NUM_TILES = 3;
-      let allOver = 0;
-      let arr = this.state.gameState;
-      let sum;
+  //Return 1 if player 1 won, -1 if player 2 won, or a 0 if no one has won
+  getWinner = gameState => {
+    const NUM_TILES = 3;
+    let allOver = 0;
+    let arr = this.state.gameState;
+    let sum;
 
-      //Check rows...
+    //Check rows...
     for (let i = 0; i < NUM_TILES; i++) {
       sum = arr[i][0] + arr[i][1] + arr[i][2];
       if (sum == 3) {
@@ -85,29 +88,29 @@ class Functions extends Component {
       }
     }
     return 0;
-};
+  };
 
-    onTilePress= (row, col) => {
-      //Don't allow tile to change...
-      let value = this.state.gameState[row][col];
-      if (value !== 0) {return;}
+  onTilePress = (row, col) => {
+    //Don't allow tile to change...
+    let value = this.state.gameState[row][col];
+    if (value !== 0) { return; }
 
-      //Grab current player...
-      let currentPlayer = this.state.currentPlayer;
+    //Grab current player...
+    let currentPlayer = this.state.currentPlayer;
 
-      //Set de correct tile...
-      let arr = this.state.gameState.slice();
-      arr[row][col] = currentPlayer;
-      this.setState({gameState:arr});
+    //Set de correct tile...
+    let arr = this.state.gameState.slice();
+    arr[row][col] = currentPlayer;
+    this.setState({ gameState: arr });
 
-      //Switch to other tile player...
-      let nextPlayer = (currentPlayer == 1) ? -1 : 1;
-      this.setState({currentPlayer : nextPlayer});
-      let nextIcon = currentIcon == "close" ? "circle-outline" : "close";
-      this.setState({currentIcon : nextIcon});
+    //Switch to other tile player...
+    let nextPlayer = (currentPlayer == 1) ? -1 : 1;
+    this.setState({ currentPlayer: nextPlayer });
+    let nextIcon = currentIcon == "close" ? "circle-outline" : "close";
+    this.setState({ currentIcon: nextIcon });
 
-      //Check for winners...
-      let winner = this.getWinner();
+    //Check for winners...
+    let winner = this.getWinner();
     if (winner[0] == 1) {
       switch (winner[1]) {
         case 0:
@@ -178,23 +181,22 @@ class Functions extends Component {
     }
   };
 
-    onNewGamePress = () => {
-      this.initializeGame();
-    }
+  onNewGamePress = () => {
+    this.initializeGame();
+  }
 
-   renderIcon = (row, col) => {
-      const value = this.state.gameState[row][col];
-      switch(value)
-      {
-        case 1: return <Icon name="close" style={styles.tileX} />;
-        case -1: return <Icon name="circle-outline" style={styles.tileO} />;
-        default: return  <View />;
-      }
+  renderIcon = (row, col) => {
+    const value = this.state.gameState[row][col];
+    switch (value) {
+      case 1: return <Icon name="close" style={styles.tileX} />;
+      case -1: return <Icon name="circle-outline" style={styles.tileO} />;
+      default: return <View />;
     }
+  }
 
   render() {
-  return 
-}
+    return
+  }
 }
 
 export default Functions;

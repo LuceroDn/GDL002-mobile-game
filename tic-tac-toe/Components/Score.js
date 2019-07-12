@@ -1,24 +1,34 @@
-import React, {Component} from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text} from 'react-native';
+import styles from './Style';
+import { Col, Row, Grid } from "react-native-easy-grid";
+//import afterTurn from "./Game"
 
-
-class ButtonNewGame extends Component {
-    constructor(props){
+class Score extends Component {
+    constructor(props) {
         super(props);
     }
 
+// arrow function component pasar props como parametro
+    render() {
+        return (
+            <Grid>
 
-    render(){
-        return(
-      <View>
+            <Col style={{ flex:1,
+        justifyContent: 'center', alignItems:'center', flexWrap: "nowrap",}}>
+                    <Text style={styles.player1}>PLAYER "O"</Text>
+                    <Text style={styles.scoreP1}>0</Text>
+            </Col>
 
-          <View>
-              <h1></h1>
-          </View>
-          
-      </View>      
+            <Col style={{ flex:1,
+        justifyContent: 'center', alignItems:'center'}}>
+                    <Text style={styles.player2}>PLAYER "X"</Text>
+                    <Text style={styles.scoreP2}>0</Text>
+            </Col>
+
+            </Grid>
         );
     }
 }
 
-export default ButtonNewGame;
+export default Score;

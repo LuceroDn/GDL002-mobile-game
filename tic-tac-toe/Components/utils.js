@@ -11,7 +11,9 @@ export const initializeGame = (setState) => {
       [0, 0, 0]
     ],
     currentPlayer: 1,
-    currentIcon: "close"
+    currentIcon: "close",
+    scoreX: 0,
+    scoreO: 0
     });
   }
 
