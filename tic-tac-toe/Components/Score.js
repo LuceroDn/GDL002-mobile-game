@@ -9,6 +9,8 @@ class Score extends Component {
         super(props);
     }
 
+
+
 // arrow function component pasar props como parametro
     render() {
         return (
@@ -17,13 +19,13 @@ class Score extends Component {
             <Col style={{ flex:1,
         justifyContent: 'center', alignItems:'center', flexWrap: "nowrap",}}>
                     <Text style={styles.player1}>PLAYER "O"</Text>
-                    <Text style={styles.scoreP1}>0</Text>
+                    <Text style={styles.scoreP1}>{this.props.scoreX}</Text>
             </Col>
 
             <Col style={{ flex:1,
         justifyContent: 'center', alignItems:'center'}}>
                     <Text style={styles.player2}>PLAYER "X"</Text>
-                    <Text style={styles.scoreP2}>0</Text>
+                    <Text style={styles.scoreP2}>{this.props.scoreO</Text>
             </Col>
 
             </Grid>

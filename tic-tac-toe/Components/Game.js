@@ -138,7 +138,8 @@ class Game extends Component {
 
       <View style={styles.container}>
 
-        <Score score={this.state.score}/>
+        <Score />
+        //Dentro de score poner *llave* this.state.score *llave*
 
       <Row size={2}>
         <Col style={{ flex:1,
